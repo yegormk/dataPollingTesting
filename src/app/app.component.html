@@ -1,1 +1,9 @@
-<h1>Happy coding</h1>
+<div *ngIf="(observeStream$ | async) as stream; else loading">
+  {{stream}}
+</div>
+<ng-template #loading>
+  Subscribing to service...
+</ng-template>
+
+<button (click)="stop()">Stop</button>
+<button (click)="start()">Start</button>
